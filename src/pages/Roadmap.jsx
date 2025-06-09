@@ -1,44 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function Roadmap() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const roadmaps = [
+    { title: 'DSA', path: '/roadmap/dsa', desc: 'Crack coding interviews step-by-step.' },
+    { title: 'Web Development', path: '/roadmap/webdev', desc: 'Complete guide from basics to advanced.' },
+    { title: 'Frontend Dev', path: '/roadmap/frontend', desc: 'Master HTML, CSS, JS & frameworks.' },
+    { title: 'Backend Dev', path: '/roadmap/backend', desc: 'Learn server-side, databases, APIs & more.' },
+    { title: 'GATE', path: '/roadmap/gate', desc: 'Structured plan for GATE preparation.' },
+  ];
+
   return (
-    <div className="flex min-h-screen">
+    <div className="min-h-screen flex flex-col md:flex-row bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-900 text-white">
       
       {/* Side Navbar */}
-      <aside className="w-64 bg-gray-800 text-gray-200 p-4 space-y-4">
-        <h2 className="text-xl font-bold mb-4">Roadmap</h2>
-        <ul className="space-y-2">
-          <li><a href="/roadmap/html" className="hover:text-white">HTML Basics</a></li>
-          <li><a href="/roadmap/css" className="hover:text-white">CSS Basics</a></li>
-          <li><a href="/roadmap/frontend" className="hover:text-white">frontend web dev</a></li>
-          <li><a href="/roadmap/backend" className="hover:text-white">Backend web dev</a></li>
-          <li><a href="/roadmap/DSA" className="hover:text-white">DSA</a></li>
-          <li><a href="/roadmap/gate" className="hover:text-white">GATE</a></li>
-           <li><a href="/roadmap/Webdev" className="hover:text-white">Webdev</a></li>
+      <aside className="md:w-64 bg-gray-800 bg-opacity-80 backdrop-blur-sm p-4">
+        <div className="flex justify-between items-center md:block">
+          <h2 className="text-xl font-bold mb-4">Roadmap</h2>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-sm bg-indigo-600 px-2 py-1 rounded"
+          >
+            {isOpen ? 'Hide' : 'Menu'}
+          </button>
+        </div>
+        <ul className={`space-y-2 mt-4 ${isOpen ? 'block' : 'hidden'} md:block`}>
+          {roadmaps.map((item, idx) => (
+            <li key={idx}>
+              <Link to={item.path} className="hover:text-white block transition duration-200">
+                {item.title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </aside>
 
-      <main className="flex-1 bg-gray-900 text-white p-6">
-        <section id="html">
-          <h2 className="text-2xl font-semibold">HTML Basics</h2>
-          <p className="mt-2 text-gray-400">Learn the structure of web pages...</p>
-        </section>
-        
-        <section id="CSS Essentials">
-          <h2 className="text-2xl font-semibold">CSS Essentials</h2>
-          <p className="mt-2 text-gray-400">Learn the structure of web pages...</p>
-        </section>
-
-         <section id="JavaScript">
-          <h2 className="text-2xl font-semibold">JavaScript</h2>
-          <p className="mt-2 text-gray-400">Learn the structure of web pages...</p>
-        </section>
-
-         <section id="React">
-          <h2 className="text-2xl font-semibold">React</h2>
-          <p className="mt-2 text-gray-400">Learn the structure of web pages...</p>
-        </section>
+      {/* Main Content */}
+      <main className="flex-1 p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {roadmaps.map((item, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-indigo-200/20 backdrop-blur-md border border-indigo-300/30 p-6 rounded-2xl shadow-xl transition-all duration-300 hover:bg-indigo-300/30"
+          >
+            <h3 className="text-xl font-semibold mb-2 text-indigo-100">{item.title}</h3>
+            <p className="text-indigo-100 mb-4 text-sm">{item.desc}</p>
+            <Link
+              to={item.path}
+              className="inline-block bg-indigo-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-600 transition"
+            >
+              Explore →
+            </Link>
+          </motion.div>
+        ))}
       </main>
     </div>
   );
 }
+

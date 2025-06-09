@@ -3,60 +3,79 @@ import { motion } from "framer-motion";
 const steps = [
   {
     id: "01",
-    title: "Learn any object oriented programming language",
+    title: "Learn an Object-Oriented Programming Language",
     details: [
-      "How compiler work",
-      "basic syntax selcted programming language",
-      "Learn how Collections work"
+      "How compilers work",
+      "Basic syntax of the selected programming language",
+      "How collections work"
     ],
     color: "from-green-400 to-green-600"
   },
   {
     id: "02",
-    title: "Learn about some basic Linear DataStructure",
-    details: ["Array","LinkedList","String","Stack","Queue"],
+    title: "Learn Basic Linear Data Structures",
+    details: ["Array", "Linked List", "String", "Stack", "Queue"],
     color: "from-teal-400 to-teal-600"
   },
   {
     id: "03",
-    title: "Learn about some basic non-Linear DataStructure",
-    details: ["Tree","Graph"],
+    title: "Learn Basic Non-Linear Data Structures",
+    details: ["Tree", "Graph"],
     color: "from-blue-400 to-blue-600"
   },
   {
     id: "04",
-    title: "Learn some advance non-Linear DataStructure",
-    details: ["Binary tree","AVL tree","Heap","DisjointSetUnion"],
+    title: "Learn Advanced Non-Linear Data Structures",
+    details: ["Binary Tree", "AVL Tree", "Heap", "Disjoint Set Union"],
     color: "from-indigo-400 to-indigo-600"
   },
   {
     id: "05",
-    title: "Learn Basic some Algorithm on Linear datastructure",
-    details: ["Linear Search", "treversal", "Insertion on LinkedList","Deletion on LinkedList","Two pointer"],
+    title: "Learn Basic Algorithms on Linear Data Structures",
+    details: [
+      "Linear Search",
+      "Traversal",
+      "Insertion in Linked List",
+      "Deletion in Linked List",
+      "Two Pointer Technique"
+    ],
     color: "from-purple-400 to-purple-600"
   },
   {
     id: "06",
-    title: "Learn some adance Algorithm on LinearDataStructure",
-    details: ["Binary Search", "Dynamic Programing", "greedy","sliding window algo"],
+    title: "Learn Advanced Algorithms on Linear Data Structures",
+    details: [
+      "Binary Search",
+      "Dynamic Programming",
+      "Greedy Algorithm",
+      "Sliding Window Technique"
+    ],
     color: "from-pink-400 to-pink-600"
   },
   {
     id: "07",
-    title: "Learn Algorithm on Tree",
-    details: ["inorder traversal","preorder traversal","post traversal","level order traversal","insertion on tree","deletion on tree","heapyfy"],
+    title: "Learn Algorithms on Trees",
+    details: [
+      "Inorder Traversal",
+      "Preorder Traversal",
+      "Postorder Traversal",
+      "Level Order Traversal",
+      "Insertion in Tree",
+      "Deletion in Tree",
+      "Heapify"
+    ],
     color: "from-yellow-400 to-yellow-600"
   },
   {
     id: "08",
-    title: "Learn algorithm on Graph",
-    details: ["DFS","BFS","topological sort"],
+    title: "Learn Algorithms on Graphs",
+    details: ["DFS", "BFS", "Topological Sort"],
     color: "from-indigo-400 to-indigo-600"
   },
   {
-    id: "10",
-    title: "Learn some advance Algorithm",
-    details: ["DisjointSetUnion","DP"],
+    id: "09",
+    title: "Learn Advanced Algorithms",
+    details: ["Disjoint Set Union", "Dynamic Programming"],
     color: "from-green-400 to-green-600"
   }
 ];
@@ -65,11 +84,10 @@ export default function Roadmap() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 px-6 py-10">
       <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
-        E-Learn DataStructure and Algorithm Roadmap
+         Data Structures & Algorithms Roadmap
       </h1>
 
       <div className="relative max-w-5xl mx-auto">
-
         <div className="flex flex-col gap-14">
           {steps.map((step, index) => {
             const isEven = index % 2 !== 0;
@@ -92,10 +110,8 @@ export default function Roadmap() {
                 </div>
 
                 {/* Content Card */}
-                <div
-                  className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full md:w-2/3"
-                >
-                  <h2 className="text-x2 font-semibold text-gray-800 dark:text-white mb-2">
+                <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full md:w-2/3">
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
                     {step.title}
                   </h2>
                   <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 text-sm">
